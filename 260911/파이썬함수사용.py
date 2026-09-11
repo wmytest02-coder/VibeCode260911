@@ -1,0 +1,37 @@
+# 함수 정의
+def add(a, b):
+    return a + b
+
+# 함수 호출
+result = add(3, 4)
+print(result)
+
+# 배열형식 연습
+lst = ["사과", "배", "감", "포도"]
+print(len(lst))
+
+# 반복문 연습
+for fruit in lst:
+    print(fruit)
+
+# 리스트에 값을 추가, 삭제
+lst.append("바나나")
+print(lst)
+
+lst.remove("감")
+print(lst)
+
+# Tuple은 한방에 입력과 출력을 하는 배열 형태
+tp = (100, 200, 300)
+print(len(tp))
+print(type(tp))
+for item in tp:
+    print(item)
+
+# 함수 정의
+def times(a, b):
+    return a+b, a*b
+
+# 함수 호출
+result = times(3, 4)
+print(result)

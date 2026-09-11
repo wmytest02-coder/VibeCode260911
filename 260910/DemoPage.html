@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5, CSS3, JavaScript 학습 페이지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            background: #fafafa;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .section p {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* HTML5 섹션 */
+        .html-demo {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .html-demo article {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #2196F3;
+            border-radius: 3px;
+        }
+
+        .html-demo article h3 {
+            color: #1976D2;
+            margin-bottom: 8px;
+        }
+
+        .html-demo article p {
+            color: #555;
+            margin: 0;
+        }
+
+        /* CSS3 섹션 */
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 15px 0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .box-1 {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+        }
+
+        .box-2 {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            transform: skew(10deg);
+        }
+
+        .box-2:hover {
+            transform: skew(10deg) rotateY(180deg);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.4);
+        }
+
+        .box-3 {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* JavaScript 섹션 */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .output {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 15px;
+            color: #333;
+            min-height: 60px;
+            display: none;
+        }
+
+        .output.active {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .code-example {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        /* 인터랙티브 색상 변경 */
+        .color-box {
+            width: 150px;
+            height: 150px;
+            background: #FFB6C1;
+            border-radius: 10px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 웹 개발 학습 가이드</h1>
+            <p>HTML5, CSS3, JavaScript의 기본을 배워봅시다!</p>
+        </header>
+
+        <div class="content">
+            <!-- HTML5 섹션 -->
+            <section class="section">
+                <h2><span class="emoji">📝</span>HTML5란?</h2>
+                <p>HTML(HyperText Markup Language)은 웹 페이지의 구조를 정의하는 마크업 언어입니다. HTML5는 최신 표준으로 의미 있는 태그들이 추가되었습니다.</p>
+
+                <div class="code-example">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;페이지 제목&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;제목&lt;/h1&gt;
+    &lt;p&gt;내용&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                </div>
+
+                <p><strong>주요 HTML5 의미 있는 태그들:</strong></p>
+                <div class="html-demo">
+                    <article>
+                        <h3>&lt;header&gt;</h3>
+                        <p>페이지나 섹션의 헤더 정보를 포함합니다.</p>
+                    </article>
+                    <article>
+                        <h3>&lt;nav&gt;</h3>
+                        <p>네비게이션 링크들을 포함합니다.</p>
+                    </article>
+                    <article>
+                        <h3>&lt;section&gt;</h3>
+                        <p>문서의 독립적인 섹션을 정의합니다.</p>
+                    </article>
+                    <article>
+                        <h3>&lt;footer&gt;</h3>
+                        <p>페이지나 섹션의 푸터 정보를 포함합니다.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- CSS3 섹션 -->
+            <section class="section">
+                <h2><span class="emoji">🎨</span>CSS3란?</h2>
+                <p>CSS(Cascading Style Sheets)는 HTML 요소들의 스타일과 레이아웃을 정의합니다. CSS3는 다양한 효과와 애니메이션을 제공합니다.</p>
+
+                <div class="code-example">
+.box {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+
+.box:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+                </div>
+
+                <p><strong>CSS3의 주요 기능들을 체험해보세요:</strong></p>
+                <div class="box box-1">Gradient</div>
+                <div class="box box-2">Transform</div>
+                <div class="box box-3">Animation</div>
+            </section>
+
+            <!-- JavaScript 섹션 -->
+            <section class="section">
+                <h2><span class="emoji">⚡</span>JavaScript란?</h2>
+                <p>JavaScript는 웹 페이지에 인터랙티브한 기능을 추가하는 프로그래밍 언어입니다. 사용자의 입력에 반응하고 동적으로 페이지를 변경할 수 있습니다.</p>
+
+                <div class="code-example">
+function changeColor() {
+  const box = document.getElementById('colorBox');
+  const colors = ['#FFB6C1', '#87CEEB', '#90EE90', '#FFD700'];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  box.style.backgroundColor = randomColor;
+}
+                </div>
+
+                <p><strong>JavaScript 예제들:</strong></p>
+                <div class="button-group">
+                    <button onclick="showTime()">⏰ 현재 시간</button>
+                    <button onclick="greeting()">👋 인사말</button>
+                    <button onclick="randomNumber()">🎲 랜덤 숫자</button>
+                    <button onclick="toggleMessage()">💬 메시지 토글</button>
+                    <button onclick="showAlert()">⚠️ 알림창</button>
+                </div>
+
+                <div class="output" id="output"></div>
+
+                <p style="margin-top: 30px;"><strong>색상을 클릭하면 변경됩니다:</strong></p>
+                <div class="color-box" id="colorBox" onclick="changeColor()">클릭!</div>
+            </section>
+
+            <!-- 종합 예제 -->
+            <section class="section">
+                <h2><span class="emoji">🚀</span>종합 예제</h2>
+                <p>HTML, CSS, JavaScript를 모두 활용한 인터랙티브한 예제입니다.</p>
+
+                <div class="button-group">
+                    <button onclick="countUp()">➕ 증가</button>
+                    <button onclick="resetCount()">🔄 초기화</button>
+                </div>
+                <div class="output active" id="counter">
+                    <h3 style="text-align: center; margin: 0; color: #667eea; font-size: 2em;">0</h3>
+                </div>
+            </section>
+
+            <!-- 학습 팁 -->
+            <section class="section">
+                <h2><span class="emoji">💡</span>학습 팁</h2>
+                <ul style="line-height: 2; color: #333; margin-left: 20px;">
+                    <li><strong>HTML:</strong> 의미 있는 태그를 사용하여 구조화된 마크업을 작성하세요.</li>
+                    <li><strong>CSS:</strong> Flexbox와 Grid를 배워 반응형 레이아웃을 만들어보세요.</li>
+                    <li><strong>JavaScript:</strong> DOM 조작과 이벤트 처리를 연습하세요.</li>
+                    <li><strong>연습:</strong> 작은 프로젝트부터 시작해서 점차 복잡한 프로젝트로 나아가세요.</li>
+                    <li><strong>도구:</strong> 개발자 도구(F12)를 활용해 디버깅하세요.</li>
+                </ul>
+            </section>
+        </div>
+
+        <footer>
+            <p>© 2024 웹 개발 학습 페이지 | HTML5, CSS3, JavaScript 학습하기</p>
+        </footer>
+    </div>
+
+    <script>
+        // 현재 시간 표시
+        function showTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('ko-KR');
+            showOutput(`현재 시간: ${timeString}`);
+        }
+
+        // 인사말
+        function greeting() {
+            const greetings = ['안녕하세요! 👋', '반갑습니다! 😊', '좋은 하루 되세요! ☀️'];
+            const random = greetings[Math.floor(Math.random() * greetings.length)];
+            showOutput(random);
+        }
+
+        // 랜덤 숫자 생성
+        function randomNumber() {
+            const num = Math.floor(Math.random() * 100) + 1;
+            showOutput(`🎲 생성된 숫자: ${num}`);
+        }
+
+        // 메시지 토글
+        let messageVisible = false;
+        function toggleMessage() {
+            messageVisible = !messageVisible;
+            const message = messageVisible ? 
+                '✅ JavaScript가 정상적으로 작동합니다!' : 
+                '❌ 메시지가 숨겨졌습니다.';
+            showOutput(message);
+        }
+
+        // 알림창 표시
+        function showAlert() {
+            alert('JavaScript로 알림창을 만들 수 있습니다! 🎉');
+        }
+
+        // 색상 변경
+        function changeColor() {
+            const box = document.getElementById('colorBox');
+            const colors = ['#FFB6C1', '#87CEEB', '#90EE90', '#FFD700', '#DDA0DD', '#FFA07A'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            box.style.backgroundColor = randomColor;
+        }
+
+        // 카운터
+        let count = 0;
+        function countUp() {
+            count++;
+            updateCounter();
+        }
+
+        function resetCount() {
+            count = 0;
+            updateCounter();
+        }
+
+        function updateCounter() {
+            document.getElementById('counter').innerHTML = `<h3 style="text-align: center; margin: 0; color: #667eea; font-size: 2em;">${count}</h3>`;
+        }
+
+        // 결과 표시 함수
+        function showOutput(message) {
+            const output = document.getElementById('output');
+            output.textContent = message;
+            output.classList.add('active');
+        }
+    </script>
+</body>
+</html>

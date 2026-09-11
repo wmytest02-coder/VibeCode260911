@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.game-container {
+    background: rgba(0, 0, 0, 0.8);
+    border: 3px solid #00ff00;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    max-width: 500px;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.game-header h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0, 255, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.score-board span {
+    flex: 1;
+    text-align: center;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(180deg, #0a0e27 0%, #16213e 50%, #0f3460 100%);
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    image-rendering: crisp-edges;
+}
+
+.game-info {
+    text-align: center;
+    color: #00ff00;
+}
+
+#gameStatus {
+    font-size: 14px;
+    margin-bottom: 15px;
+    min-height: 20px;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.btn {
+    background: #00ff00;
+    color: #000;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+.btn:hover {
+    background: #00cc00;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-start {
+    display: inline-block;
+}
+
+.btn-reset {
+    background: #ff4444;
+    color: white;
+}
+
+.btn-reset:hover {
+    background: #ff2222;
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.8);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 480px) {
+    .game-container {
+        padding: 15px;
+    }
+
+    .game-header h1 {
+        font-size: 22px;
+    }
+
+    #gameCanvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .score-board {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
